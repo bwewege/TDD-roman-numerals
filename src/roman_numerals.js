@@ -25,21 +25,20 @@ export function convertToRoman(number) {
     const numbersLessThan = numberKey.filter((n) => n <= x);
 
     const isLargeNumber = (n) => n === largestNumber;
+    if (numbersLessThan.length === 0) {
+      break;
+    }
     largestNumber = Math.max(...numbersLessThan);
     const largestNumberIndex = numberKey.findIndex(isLargeNumber);
     romanNumber = romanNumber + romanKey[largestNumberIndex];
 
-    // console.log("numbersLessThan: " + numbersLessThan);
-    // console.log("largestNumber: " + largestNumber);
-    // console.log("largestNumberIndex:" + largestNumberIndex);
-    // console.log(
-    //   romanNumber + " + " + romanKey[largestNumberIndex] + " = " + romanNumber
-    // );
-    // console.log("x:" + x);
-
-    if (numbersLessThan.length === 0) {
-      break;
-    }
+    console.log("numbersLessThan: " + numbersLessThan);
+    console.log("largestNumber: " + largestNumber);
+    console.log("largestNumberIndex:" + largestNumberIndex);
+    console.log(
+      romanNumber + " + " + romanKey[largestNumberIndex] + " = " + romanNumber
+    );
+    console.log("x:" + x);
   } while (x != 1);
 
   return romanNumber;
