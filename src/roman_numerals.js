@@ -1,42 +1,46 @@
-const number = 597;
-//export function convertToRoman(number) {
-const numberKey = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-const romanKey = [
-  "I",
-  "IV",
-  "V",
-  "IX",
-  "X",
-  "XL",
-  "L",
-  "XC",
-  "C",
-  "CD",
-  "D",
-  "CM",
-  "M",
-];
+export function convertToRoman(number) {
+  const numberKey = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+  const romanKey = [
+    "I",
+    "IV",
+    "V",
+    "IX",
+    "X",
+    "XL",
+    "L",
+    "XC",
+    "C",
+    "CD",
+    "D",
+    "CM",
+    "M",
+  ];
 
-let x = number;
-console.log(numberKey.length);
+  let x = number;
+  let romanNumber = "";
+  let largestNumber = 0;
 
-const numbersLessThan = numberKey.filter((n) => n < number);
-const largestNumber = Math.max(...numbersLessThan);
-const isLargeNumber = (n) => n === largestNumber;
-const largestNumberIndex = numberKey.findIndex(isLargeNumber);
+  do {
+    x = x - largestNumber;
+    const numbersLessThan = numberKey.filter((n) => n <= x);
 
-console.log("returnLarger: " + numbersLessThan);
-console.log("largestNumber: " + largestNumber);
-console.log("largestNumberIndex:" + largestNumberIndex);
+    const isLargeNumber = (n) => n === largestNumber;
+    largestNumber = Math.max(...numbersLessThan);
+    const largestNumberIndex = numberKey.findIndex(isLargeNumber);
+    romanNumber = romanNumber + romanKey[largestNumberIndex];
 
-// for (i=numberKey.length-1; x>0; i--) {
-// console.log(i)
-// x =
+    // console.log("numbersLessThan: " + numbersLessThan);
+    // console.log("largestNumber: " + largestNumber);
+    // console.log("largestNumberIndex:" + largestNumberIndex);
+    // console.log(
+    //   romanNumber + " + " + romanKey[largestNumberIndex] + " = " + romanNumber
+    // );
+    // console.log("x:" + x);
 
-// };
+    if (numbersLessThan.length === 0) {
+      break;
+    }
+  } while (x != 1);
 
-let romanNumeral = "";
-
-//  return romanNumeral;
-
-//}
+  return romanNumber;
+}
