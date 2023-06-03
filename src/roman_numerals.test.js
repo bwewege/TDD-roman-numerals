@@ -1,6 +1,6 @@
 import { convertToRoman } from "./roman_numerals";
 
-describe("convert simple", () => {
+describe("convert Integer to Roman Numerals", () => {
   test("convert number between 1 and 3 inclusive", () => {
     expect(convertToRoman(3)).toBe("III");
   });
