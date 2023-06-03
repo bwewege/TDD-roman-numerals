@@ -5,7 +5,7 @@ describe("convert simple", () => {
     expect(convertToRoman(3)).toBe("III");
   });
   test("convert number greater than 3 less than 10", () => {
-    expect(convertToRoman()).toBe("VII");
+    expect(convertToRoman(7)).toBe("VII");
   });
   test("convert number greater than 10 less than 50", () => {
     expect(convertToRoman(11)).toBe("XI");
